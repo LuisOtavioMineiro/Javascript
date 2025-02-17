@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Simples</title>
+    <style>
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: blue;
+            margin: 0;
+        }
+        .calculadora {
+            background-color: black;
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0 0 0 10px rgba(0,0,0,0.5);
+            text-align: center;
+            width: 320px;
+        }
+        .display {
+            background-color: #222;
+            color: white;
+            font-size: 20px;
+            padding: 10px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            min-width: 50px;
+            text-align: right;
+        }
+        .buttons {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+        .button {
+            border: none;
+            border-radius: 50%;
+            padding: 20px;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        .button.orange {
+            background-color: orange;
+            color: white;
+        }
+        .button.dark-gray {
+            background-color: #333;
+            color: white;
+        }
+        .button.light-gray {
+            background-color: #666;
+            color: white;
+        }
+        .button.wide {
+            grid-column: span 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculadora">
+        <div class="display" id="display"></div>
+        <div class="buttons">
+            <button class="button light-gray" >C</button>
+            <button class="button light-gray" >%</button>
+            <button class="button light-gray" >,</button>
+            <button class="button orange">/</button>
+            <button class="button dark-gray">7</button>
+            <button class="button dark-gray">8</button>
+            <button class="button dark-gray">9</button>
+            <button class="button orange">*</button>
+            <button class="button dark-gray">4</button>
+            <button class="button dark-gray">5</button>
+            <button class="button dark-gray">6</button>
+            <button class="button orange">-</button>
+            <button class="button dark-gray">1</button>
+            <button class="button dark-gray">2</button>
+            <button class="button dark-gray">3</button>
+            <button class="button orange">+</button>
+            <button class="button dark-gray wide">0</button>
+            <button class="button orange">=</button>
+        </div>
+    </div>
+</body>
+</html>

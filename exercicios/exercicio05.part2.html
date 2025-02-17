@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperatura</title>
+    <!-- Link para a CDN do Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        /* Estilo básico do corpo */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f4f8;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        /* Container do conteúdo */
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        /* Título */
+        h1 {
+            color: #4CAF50;
+        }
+
+        /* Estilo para o campo de entrada */
+        input[type="number"] {
+            padding: 10px;
+            width: 80%;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        /* Estilo do botão */
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        /* Estilo para o parágrafo do resultado */
+        #resultado {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        /* Estilo para o ícone */
+        .material-icons {
+            vertical-align: middle;
+            font-size: 40px;
+            margin-right: 10px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Verifique a Temperatura</h1>
+        <label for="temperadura">Digite a Temperatura (°C): </label>
+        <input type="number" id="temperadura" name="temperadura">
+        <button onclick="verificarTemperatura()">Verificar Temperatura</button>
+        <p id="resultado"></p>
+    </div>
+
+    <script>
+        function verificarTemperatura() {
+            let temperadura = document.getElementById('temperadura').value;
+            let resultado = '';
+            let icone = '';
+
+            // Converte a entrada para número
+            temperadura = parseInt(temperadura);
+
+            if (temperadura >= 30) {
+                resultado = "Está quente";
+                icone = "<span class='material-icons'>wb_sunny</span>"; // Sol
+            } else if (temperadura >= 26) {
+                resultado = "Zona de conforto";
+                icone = "<span class='material-icons'>wb_cloudy</span>"; // Nuvem com sol
+            } else if (temperadura >= 20) {
+                resultado = "Centro da zona de conforto";
+                icone = "<span class='material-icons'>cloud</span>"; // Nuvem
+            } else if (temperadura >= 15) {
+                resultado = "Leve desconforto pelo frio";
+                icone = "<span class='material-icons'>ac_unit</span>"; // Floco de neve
+            } else if (temperadura >= 10) {
+                resultado = "Desconforto pelo frio";
+                icone = "<span class='material-icons'>ac_unit</span>"; // Floco de neve
+            } else if (temperadura >= 5) {
+                resultado = "Frio";
+                icone = "<span class='material-icons'>thermostat</span>"; // Termômetro
+            } else if (temperadura >= 0) {
+                resultado = "Resfriamento elevado";
+                icone = "<span class='material-icons'>thermostat</span>"; // Termômetro
+            } else {
+                resultado = "Resfriamento muito elevado";
+                icone = "<span class='material-icons'>ac_unit</span>"; // Floco de neve
+            }
+
+            // Exibe o resultado com o ícone
+            document.getElementById('resultado').innerHTML = icone + " " + resultado + " (" + temperadura + "°C)";
+        }
+    </script>
+</body>
+</html>
