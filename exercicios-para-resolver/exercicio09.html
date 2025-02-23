@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>exericio da calculadora</title>
+</head>
+<body>
+    
+    <script>
+        let num1 = 25;
+        let num2 = 15;
+        let operador = "/"
+
+        switch(operador) {
+            case "+" :
+            console.log(num1 + num2) ;   
+            break;
+            case "-" : 
+            console.log(num1 - num2)  ;  
+            break;
+            case "*":
+            console.log(num1 * num2);
+            break;
+
+            case "/":
+            if(num2 === 0) {
+                console.log("Error: divisao por zero");
+            }else {
+                console.log(num1 / num2);
+            }
+            break;
+            default:
+                console.log("operador inválido")
+        }
+    </script>
+</body>
+</html>
